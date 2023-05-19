@@ -1,9 +1,10 @@
 # Analyzing Clinical and Genomic Oncological Data with {genieBPC} and {gnomeR}
 
-Samantha Brown
-Hannah Fuchs
-Jessica Lavery
-Karissa Whiting
+## Authors
+- Samantha Brown
+- Hannah Fuchs
+- Jessica Lavery
+- Karissa Whiting
 
 *The materials provided are intended to accompany the demo presented at the R/Medicine Virtual Conference 2023.*
 
