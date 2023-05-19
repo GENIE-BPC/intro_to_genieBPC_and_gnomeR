@@ -1,12 +1,12 @@
 # Analyzing Clinical and Genomic Oncological Data with {genieBPC} and {gnomeR}
 
+*The materials provided are intended to accompany the demo presented at the R/Medicine Virtual Conference 2023.*
+
 ## Authors
 - Samantha Brown
 - Hannah Fuchs
 - Jessica Lavery
 - Karissa Whiting
-
-*The materials provided are intended to accompany the demo presented at the R/Medicine Virtual Conference 2023.*
 
 ## Instructions for registering for a Synapse account to access GENIE BPC data
 
