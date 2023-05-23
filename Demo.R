@@ -1,4 +1,5 @@
-#devtools::install_github("MSKCC-Epi-Bio/gnomeR") 
+# devtools::install_github("MSKCC-Epi-Bio/gnomeR") 
+# devtools::install_github(“GENIE-BPC/genieBPC”)
 
 library(genieBPC)
 library(tidyverse)
@@ -9,7 +10,7 @@ library(gtsummary)
 #                         Demo with NSCLC 2.0-public
 ###############################################################################
 # log into Synapse
-genieBPC::set_synapse_credentials()
+genieBPC::set_synapse_credentials("email@email.com", "password")
 
 # pull data from Synapse into R
 nsclc_synapse_data <- pull_data_synapse(cohort = "NSCLC",
