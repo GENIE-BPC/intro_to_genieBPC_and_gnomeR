@@ -1,5 +1,5 @@
 # devtools::install_github("MSKCC-Epi-Bio/gnomeR") 
-# devtools::install_github(“GENIE-BPC/genieBPC”)
+# devtools::install_github(“GENIE-BPC/genieBPC”, ref = "update_test_data")
 
 library(genieBPC)
 library(tidyverse)
@@ -205,3 +205,106 @@ nsclc_sunburst <- drug_regimen_sunburst(data_synapse = nsclc_test_data,
                                         data_cohort = nsclc_cohort)
 
 nsclc_sunburst$sunburst_plot
+
+# select one sample per patient
+nrow(nsclc_cohort$cohort_ngs)
+
+test_nsclc_samp <- select_unique_ngs(
+  data_cohort = nsclc_cohort$cohort_ngs,
+  oncotree_code = "LUAD",
+  sample_type = "Metastasis",
+  min_max_time = "max"
+)
+
+nrow(test_nsclc_samp) 
+
+# get mutation, cna and fusions data
+mutations <- nsclc_test_data$mutations_extended
+cna <- nsclc_test_data$cna
+fusions <- nsclc_test_data$fusions
+
+# Reformat CNA and fusions -----
+
+# reformat fusions and cna to get in standard format
+reformat_fusions <- gnomeR::reformat_fusion(fusions)
+nrow(reformat_fusions)
+
+reformat_cna <- gnomeR::pivot_cna_longer(cna)
+nrow(reformat_cna)
+
+
+nsclc_panels <- data.frame(
+  sample_id = test_nsclc_samp$cpt_genie_sample_id,
+  panel_id = test_nsclc_samp$cpt_seq_assay_id) %>% 
+  mutate(panel_id = ifelse(!is.na(panel_id),
+                           panel_id, "no"))
+
+# Create your gene binary data -----
+gene_binary <- gnomeR::create_gene_binary(
+  mutation = mutations,
+  cna = reformat_cna,
+  fusion = reformat_fusions,
+  samples = test_nsclc_samp$cpt_genie_sample_id,
+  specify_panel = nsclc_panels, 
+  recode_aliases = "impact")
+
+# Join clinical data to mutation data -----
+# get patient IDs and sample IDs
+patient_index <-  nsclc_cohort$cohort_ngs %>%
+  select(record_id, cpt_genie_sample_id)
+
+# Join sex data to patient ID index
+select_clinical <- nsclc_cohort$cohort_pt_char %>%
+  select(record_id, naaccr_sex_code) %>%
+  left_join(patient_index) 
+
+# Join all to gene binary data
+gene_binary <- gene_binary %>% 
+  left_join(select_clinical,
+            by = c("sample_id"= "cpt_genie_sample_id")) %>%
+  select(-record_id)
+
+gene_binary <- gene_binary %>% 
+  select(sample_id, naaccr_sex_code, everything())
+
+gene_binary %>%
+  select(naaccr_sex_code) %>%
+  tbl_summary() 
+
+# Subset by gene frequency -----
+ncol(gene_binary)
+
+nscl_subset <- gene_binary %>%
+  subset_by_frequency(t = .4, other_vars = naaccr_sex_code)
+
+ncol(nscl_subset)
+
+# General summary table  -----
+nscl_subset %>% 
+  select(-naaccr_sex_code) %>%
+  tbl_genomic() %>%
+  bold_labels() 
+
+
+# Pathways -----
+path_df <- gene_binary %>%
+  select(-naaccr_sex_code) %>%
+  add_pathways() 
+
+path_df %>%
+  select(contains("pathway")) %>%
+  tbl_summary() %>% 
+  bold_labels() 
+
+
+# Summarize Frequencies By Clinical Variable -----
+tbl_gene <- gene_binary %>%
+  subset_by_frequency(
+    t = .4,
+    other_vars = naaccr_sex_code) %>%
+  tbl_genomic(by = naaccr_sex_code) %>%
+  bold_labels() %>%
+  add_p() %>%
+  add_q()
+
+tbl_gene
