@@ -10,8 +10,15 @@
 
 ## Instructions for registering for a Synapse account to access GENIE BPC data
 
-1. Register for a ‘Synapse’ account. Accept the Synapse account terms of use: https://www.synapse.org/#
-2. Navigate to the data release and **accept terms of use.** Towards the top of the page, there is information including the *‘Synapse’ ID, DOI, Item count,* and *Access.* Next to *Access* is a link that reads *Request Access:* https://www.synapse.org/#!Team:3399797
-3. Navigate to [GENIE Biopharma Collaborative Public page](https://www.synapse.org/#!Synapse:syn27056172/wiki/616601) --> Files --> Data Releases --> NSCLC --> 2.0-public --> Select *Request Access,* review the **terms of data use** and select *Accept:*
+1. Register for a [‘Synapse’ account](https://www.synapse.org/#). Be sure to create a username and password. Do **NOT** connect via your Google account.
 
+    a) https://www.synapse.org/#
+    
+2. Accept the Synapse account terms of use.
+    
+3. Navigate to [GENIE Biopharma Collaborative Public page](https://www.synapse.org/#!Synapse:syn27056172/wiki/616601)
 
+    a) https://www.synapse.org/#!Synapse:syn27056172/wiki/616601
+    
+4. In the Files folder, navigate to Data Releases --> NSCLC --> 2.0-public 
+5. Select Request Access, review the terms of data use and click *Accept*
