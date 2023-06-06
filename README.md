@@ -2,6 +2,8 @@
 
 *The materials provided are intended to accompany the demo presented at the R/Medicine Virtual Conference 2023.*
 
+Slides are available at: https://genie-bpc.github.io/intro_to_genieBPC_and_gnomeR/geniebpc-gnomer-r-med.pdf 
+
 ## Authors
 - Samantha Brown
 - Hannah Fuchs
