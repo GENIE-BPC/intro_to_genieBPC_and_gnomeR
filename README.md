@@ -1,6 +1,6 @@
 # Analyzing Clinical and Genomic Oncological Data with {genieBPC} and {gnomeR}
 
-*The materials provided are intended to accompany the demo presented at the R/Medicine Virtual Conference 2023.*
+*The materials provided are intended to accompany the demo presented at the R/Medicine Virtual Conference 2023 and the GENIE BPC 2024 Winter Symposium.*
 
 Slides are available at: https://genie-bpc.github.io/intro_to_genieBPC_and_gnomeR/geniebpc-gnomer-r-med.pdf 
 
