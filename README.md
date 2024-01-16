@@ -2,7 +2,9 @@
 
 *The materials provided are intended to accompany the demo presented at the R/Medicine Virtual Conference 2023 and the GENIE BPC 2024 Winter Symposium.*
 
-Slides are available at: https://genie-bpc.github.io/intro_to_genieBPC_and_gnomeR/geniebpc-gnomer-r-med.pdf 
+R Medicine slides are available at: https://genie-bpc.github.io/intro_to_genieBPC_and_gnomeR/geniebpc-gnomer-r-med.pdf
+
+GENIE BPC 2024 Winter Symposium Slides are available at: https://github.com/GENIE-BPC/intro_to_genieBPC_and_gnomeR/blob/main/docs/BPC%20Symposium%202024-01-11.pdf
 
 ## Authors
 - Samantha Brown
