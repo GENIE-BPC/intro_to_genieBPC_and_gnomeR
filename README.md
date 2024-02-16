@@ -26,3 +26,6 @@ GENIE BPC 2024 Winter Symposium Slides are available at: https://github.com/GENI
     
 4. In the Files folder, navigate to Data Releases --> NSCLC --> 2.0-public. 
 5. Select Request Access, review the terms of data use and click *Accept*.
+
+## References
+Jessica A Lavery, Samantha Brown, Michael A Curry, Axel Martin, Daniel D Sjoberg, Karissa Whiting, A data processing pipeline for the AACR project GENIE biopharma collaborative data with the {genieBPC} R package, Bioinformatics, Volume 39, Issue 1, January 2023, btac796, https://doi.org/10.1093/bioinformatics/btac796
